@@ -34,7 +34,7 @@ pub fn solve_b(filename: &str) {
                         "Found numbers adding to 2020. {}, {}, and {}",
                         num1, num2, num3
                     );
-                    println!("{}", num1 * num2);
+                    println!("{}", num1 * num2 * num3);
                     return;
                 }
             }
