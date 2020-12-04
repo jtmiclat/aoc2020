@@ -3,6 +3,7 @@ use clap::clap_app;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 fn main() {
     let matches = clap_app!(myapp =>
@@ -33,12 +34,22 @@ fn main() {
             (@arg INPUT: +required "Sets the input file to use")
         )
         (@subcommand day3a =>
-            (about: "Solve for the 1st problem of day 2")
+            (about: "Solve for the 1st problem of day 3")
             (version: "1.0")
             (@arg INPUT: +required "Sets the input file to use")
         )
         (@subcommand day3b =>
-            (about: "Solve for the 2nd problem of day 2")
+            (about: "Solve for the 2nd problem of day 3")
+            (version: "1.0")
+            (@arg INPUT: +required "Sets the input file to use")
+        )
+        (@subcommand day4a =>
+            (about: "Solve for the 1st problem of day 4")
+            (version: "1.0")
+            (@arg INPUT: +required "Sets the input file to use")
+        )
+        (@subcommand day4b =>
+            (about: "Solve for the 2nd problem of day 4")
             (version: "1.0")
             (@arg INPUT: +required "Sets the input file to use")
         )
@@ -73,6 +84,16 @@ fn main() {
         Some(("day3b", sub_m)) => {
             if let Some(input) = sub_m.value_of("INPUT") {
                 day3::solve_b(input);
+            }
+        }
+        Some(("day4a", sub_m)) => {
+            if let Some(input) = sub_m.value_of("INPUT") {
+                day4::solve_a(input);
+            }
+        }
+        Some(("day4b", sub_m)) => {
+            if let Some(input) = sub_m.value_of("INPUT") {
+                day4::solve_b(input);
             }
         }
         _ => {}
