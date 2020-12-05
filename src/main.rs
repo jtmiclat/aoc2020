@@ -4,6 +4,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let matches = clap_app!(myapp =>
@@ -53,6 +54,16 @@ fn main() {
             (version: "1.0")
             (@arg INPUT: +required "Sets the input file to use")
         )
+        (@subcommand day5a =>
+            (about: "Solve for the 1st problem of day 5")
+            (version: "1.0")
+            (@arg INPUT: +required "Sets the input file to use")
+        )
+        (@subcommand day5b =>
+            (about: "Solve for the 2nd problem of day 5")
+            (version: "1.0")
+            (@arg INPUT: +required "Sets the input file to use")
+        )
     )
     .get_matches();
     match matches.subcommand() {
@@ -94,6 +105,16 @@ fn main() {
         Some(("day4b", sub_m)) => {
             if let Some(input) = sub_m.value_of("INPUT") {
                 day4::solve_b(input);
+            }
+        }
+        Some(("day5a", sub_m)) => {
+            if let Some(input) = sub_m.value_of("INPUT") {
+                day5::solve_a(input);
+            }
+        }
+        Some(("day5b", sub_m)) => {
+            if let Some(input) = sub_m.value_of("INPUT") {
+                day5::solve_b(input);
             }
         }
         _ => {}
